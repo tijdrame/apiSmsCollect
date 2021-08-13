@@ -41,6 +41,7 @@
     "jwtSecretKey": "YjQxOWNlNDQ4NDNiNzY3ODFmMzgxMDAzMTE0OTAyMGZiZjM4M2Q2MzMwNWJhYTI0N2FmYjUyMmFiOGEzNDQ5ZjNhODVjMjkxMjNkYzU4OTdkZTVkMDY4Zjg5M2E5Yjc4ZjczZWVkMGI3YTM0ODg3NWZmYjA1NDY3MGRjNDIyMTc=",
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["fr", "en"]
+    "languages": ["fr", "en"],
+    "entities": ["Tracking", "ParamEndPoint", "ParamGeneral"]
   }
 }

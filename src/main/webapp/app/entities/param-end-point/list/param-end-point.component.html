@@ -1,0 +1,88 @@
+<div>
+  <h2 id="page-heading" data-cy="ParamEndPointHeading">
+    <span jhiTranslate="apiSmsCollectApp.paramEndPoint.home.title">Param End Points</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apiSmsCollectApp.paramEndPoint.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-param-end-point"
+        [routerLink]="['/param-end-point/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apiSmsCollectApp.paramEndPoint.home.createLabel"> Create a new Param End Point </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="paramEndPoints?.length === 0">
+    <span jhiTranslate="apiSmsCollectApp.paramEndPoint.home.notFound">No paramEndPoints found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="paramEndPoints && paramEndPoints.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramEndPoint.codeParam">Code Param</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramEndPoint.endPoints">End Points</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramEndPoint.attribute01">Attribute 01</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramEndPoint.attribute02">Attribute 02</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramEndPoint.attribute03">Attribute 03</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramEndPoint.attribute04">Attribute 04</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paramEndPoint of paramEndPoints; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/param-end-point', paramEndPoint.id, 'view']">{{ paramEndPoint.id }}</a>
+          </td>
+          <td>{{ paramEndPoint.codeParam }}</td>
+          <td>{{ paramEndPoint.endPoints }}</td>
+          <td>{{ paramEndPoint.attribute01 }}</td>
+          <td>{{ paramEndPoint.attribute02 }}</td>
+          <td>{{ paramEndPoint.attribute03 }}</td>
+          <td>{{ paramEndPoint.attribute04 }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/param-end-point', paramEndPoint.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/param-end-point', paramEndPoint.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(paramEndPoint)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

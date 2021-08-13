@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="paramGeneral">
+      <h2 data-cy="paramGeneralDetailsHeading"><span jhiTranslate="apiSmsCollectApp.paramGeneral.detail.title">Param General</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ paramGeneral.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.code">Code</span></dt>
+        <dd>
+          <span>{{ paramGeneral.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.pays">Pays</span></dt>
+        <dd>
+          <span>{{ paramGeneral.pays }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varString1">Var String 1</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varString1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varString2">Var String 2</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varString2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varString3">Var String 3</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varString3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger1">Var Integer 1</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varInteger1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger2">Var Integer 2</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varInteger2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger3">Var Integer 3</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varInteger3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble1">Var Double 1</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varDouble1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble2">Var Double 2</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varDouble2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble3">Var Double 3</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varDouble3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varInstant">Var Instant</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varInstant | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varDate">Var Date</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.paramGeneral.varBoolean">Var Boolean</span></dt>
+        <dd>
+          <span>{{ paramGeneral.varBoolean }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/param-general', paramGeneral.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

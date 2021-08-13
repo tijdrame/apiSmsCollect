@@ -95,6 +95,7 @@
   },
   "defaultProject": "api-sms-collect",
   "cli": {
+    "analytics": false,
     "packageManager": "npm"
   }
 }

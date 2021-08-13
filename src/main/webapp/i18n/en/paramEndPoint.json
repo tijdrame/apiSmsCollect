@@ -1,0 +1,29 @@
+{
+  "apiSmsCollectApp": {
+    "paramEndPoint": {
+      "home": {
+        "title": "Param End Points",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Param End Point",
+        "createOrEditLabel": "Create or edit a Param End Point",
+        "notFound": "No Param End Points found"
+      },
+      "created": "A new Param End Point is created with identifier {{ param }}",
+      "updated": "A Param End Point is updated with identifier {{ param }}",
+      "deleted": "A Param End Point is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Param End Point {{ id }}?"
+      },
+      "detail": {
+        "title": "Param End Point"
+      },
+      "id": "ID",
+      "codeParam": "Code Param",
+      "endPoints": "End Points",
+      "attribute01": "Attribute 01",
+      "attribute02": "Attribute 02",
+      "attribute03": "Attribute 03",
+      "attribute04": "Attribute 04"
+    }
+  }
+}

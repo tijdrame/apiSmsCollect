@@ -1,0 +1,37 @@
+{
+  "apiSmsCollectApp": {
+    "paramGeneral": {
+      "home": {
+        "title": "Param Generals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Param General",
+        "createOrEditLabel": "Create or edit a Param General",
+        "notFound": "No Param Generals found"
+      },
+      "created": "A new Param General is created with identifier {{ param }}",
+      "updated": "A Param General is updated with identifier {{ param }}",
+      "deleted": "A Param General is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Param General {{ id }}?"
+      },
+      "detail": {
+        "title": "Param General"
+      },
+      "id": "ID",
+      "code": "Code",
+      "pays": "Pays",
+      "varString1": "Var String 1",
+      "varString2": "Var String 2",
+      "varString3": "Var String 3",
+      "varInteger1": "Var Integer 1",
+      "varInteger2": "Var Integer 2",
+      "varInteger3": "Var Integer 3",
+      "varDouble1": "Var Double 1",
+      "varDouble2": "Var Double 2",
+      "varDouble3": "Var Double 3",
+      "varInstant": "Var Instant",
+      "varDate": "Var Date",
+      "varBoolean": "Var Boolean"
+    }
+  }
+}

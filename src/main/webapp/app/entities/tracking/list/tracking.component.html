@@ -1,0 +1,126 @@
+<div>
+  <h2 id="page-heading" data-cy="TrackingHeading">
+    <span jhiTranslate="apiSmsCollectApp.tracking.home.title">Trackings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apiSmsCollectApp.tracking.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tracking"
+        [routerLink]="['/tracking/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apiSmsCollectApp.tracking.home.createLabel"> Create a new Tracking </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="trackings?.length === 0">
+    <span jhiTranslate="apiSmsCollectApp.tracking.home.notFound">No trackings found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="trackings && trackings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="codeResponse">
+            <span jhiTranslate="apiSmsCollectApp.tracking.codeResponse">Code Response</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="endPoint">
+            <span jhiTranslate="apiSmsCollectApp.tracking.endPoint">End Point</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="loginActeur">
+            <span jhiTranslate="apiSmsCollectApp.tracking.loginActeur">Login Acteur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="requestId">
+            <span jhiTranslate="apiSmsCollectApp.tracking.requestId">Request Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateRequest">
+            <span jhiTranslate="apiSmsCollectApp.tracking.dateRequest">Date Request</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateResponse">
+            <span jhiTranslate="apiSmsCollectApp.tracking.dateResponse">Date Response</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="requestTr">
+            <span jhiTranslate="apiSmsCollectApp.tracking.requestTr">Request Tr</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="responseTr">
+            <span jhiTranslate="apiSmsCollectApp.tracking.responseTr">Response Tr</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tracking of trackings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tracking', tracking.id, 'view']">{{ tracking.id }}</a>
+          </td>
+          <td>{{ tracking.codeResponse }}</td>
+          <td>{{ tracking.endPoint }}</td>
+          <td>{{ tracking.loginActeur }}</td>
+          <td>{{ tracking.requestId }}</td>
+          <td>{{ tracking.dateRequest | formatMediumDatetime }}</td>
+          <td>{{ tracking.dateResponse | formatMediumDatetime }}</td>
+          <td>{{ tracking.requestTr }}</td>
+          <td>{{ tracking.responseTr }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tracking', tracking.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tracking', tracking.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tracking)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="trackings && trackings.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

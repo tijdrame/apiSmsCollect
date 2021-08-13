@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tracking">
+      <h2 data-cy="trackingDetailsHeading"><span jhiTranslate="apiSmsCollectApp.tracking.detail.title">Tracking</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tracking.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.tracking.codeResponse">Code Response</span></dt>
+        <dd>
+          <span>{{ tracking.codeResponse }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.tracking.endPoint">End Point</span></dt>
+        <dd>
+          <span>{{ tracking.endPoint }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.tracking.loginActeur">Login Acteur</span></dt>
+        <dd>
+          <span>{{ tracking.loginActeur }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.tracking.requestId">Request Id</span></dt>
+        <dd>
+          <span>{{ tracking.requestId }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.tracking.dateRequest">Date Request</span></dt>
+        <dd>
+          <span>{{ tracking.dateRequest | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.tracking.dateResponse">Date Response</span></dt>
+        <dd>
+          <span>{{ tracking.dateResponse | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.tracking.requestTr">Request Tr</span></dt>
+        <dd>
+          <span>{{ tracking.requestTr }}</span>
+        </dd>
+        <dt><span jhiTranslate="apiSmsCollectApp.tracking.responseTr">Response Tr</span></dt>
+        <dd>
+          <span>{{ tracking.responseTr }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tracking', tracking.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

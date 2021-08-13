@@ -1,0 +1,31 @@
+{
+  "apiSmsCollectApp": {
+    "tracking": {
+      "home": {
+        "title": "Trackings",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Tracking",
+        "createOrEditLabel": "Créer ou éditer un Tracking",
+        "notFound": "Aucun Tracking trouvé"
+      },
+      "created": "Un nouveau Tracking a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tracking avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tracking avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tracking {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tracking"
+      },
+      "id": "ID",
+      "codeResponse": "Code Response",
+      "endPoint": "End Point",
+      "loginActeur": "Login Acteur",
+      "requestId": "Request Id",
+      "dateRequest": "Date Request",
+      "dateResponse": "Date Response",
+      "requestTr": "Request Tr",
+      "responseTr": "Response Tr"
+    }
+  }
+}

@@ -1,0 +1,212 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tracking-heading" data-cy="TrackingCreateUpdateHeading" jhiTranslate="apiSmsCollectApp.tracking.home.createOrEditLabel">
+        Create or edit a Tracking
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.tracking.codeResponse" for="field_codeResponse"
+            >Code Response</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="codeResponse"
+            id="field_codeResponse"
+            data-cy="codeResponse"
+            formControlName="codeResponse"
+          />
+          <div
+            *ngIf="editForm.get('codeResponse')!.invalid && (editForm.get('codeResponse')!.dirty || editForm.get('codeResponse')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('codeResponse')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.tracking.endPoint" for="field_endPoint">End Point</label>
+          <input type="text" class="form-control" name="endPoint" id="field_endPoint" data-cy="endPoint" formControlName="endPoint" />
+          <div *ngIf="editForm.get('endPoint')!.invalid && (editForm.get('endPoint')!.dirty || editForm.get('endPoint')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('endPoint')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.tracking.loginActeur" for="field_loginActeur"
+            >Login Acteur</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="loginActeur"
+            id="field_loginActeur"
+            data-cy="loginActeur"
+            formControlName="loginActeur"
+          />
+          <div *ngIf="editForm.get('loginActeur')!.invalid && (editForm.get('loginActeur')!.dirty || editForm.get('loginActeur')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('loginActeur')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.tracking.requestId" for="field_requestId">Request Id</label>
+          <input type="text" class="form-control" name="requestId" id="field_requestId" data-cy="requestId" formControlName="requestId" />
+          <div *ngIf="editForm.get('requestId')!.invalid && (editForm.get('requestId')!.dirty || editForm.get('requestId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.tracking.dateRequest" for="field_dateRequest"
+            >Date Request</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dateRequest"
+              data-cy="dateRequest"
+              type="datetime-local"
+              class="form-control"
+              name="dateRequest"
+              formControlName="dateRequest"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('dateRequest')!.invalid && (editForm.get('dateRequest')!.dirty || editForm.get('dateRequest')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dateRequest')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('dateRequest')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.tracking.dateResponse" for="field_dateResponse"
+            >Date Response</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dateResponse"
+              data-cy="dateResponse"
+              type="datetime-local"
+              class="form-control"
+              name="dateResponse"
+              formControlName="dateResponse"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="editForm.get('dateResponse')!.invalid && (editForm.get('dateResponse')!.dirty || editForm.get('dateResponse')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dateResponse')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('dateResponse')?.errors?.ZonedDateTimelocal"
+              jhiTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.tracking.requestTr" for="field_requestTr">Request Tr</label>
+          <textarea class="form-control" name="requestTr" id="field_requestTr" data-cy="requestTr" formControlName="requestTr"></textarea>
+          <div *ngIf="editForm.get('requestTr')!.invalid && (editForm.get('requestTr')!.dirty || editForm.get('requestTr')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('requestTr')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.tracking.responseTr" for="field_responseTr">Response Tr</label>
+          <textarea
+            class="form-control"
+            name="responseTr"
+            id="field_responseTr"
+            data-cy="responseTr"
+            formControlName="responseTr"
+          ></textarea>
+          <div *ngIf="editForm.get('responseTr')!.invalid && (editForm.get('responseTr')!.dirty || editForm.get('responseTr')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('responseTr')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

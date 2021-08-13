@@ -1,0 +1,224 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-param-general-heading"
+        data-cy="ParamGeneralCreateUpdateHeading"
+        jhiTranslate="apiSmsCollectApp.paramGeneral.home.createOrEditLabel"
+      >
+        Create or edit a Param General
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.code" for="field_code">Code</label>
+          <input type="text" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.pays" for="field_pays">Pays</label>
+          <input type="text" class="form-control" name="pays" id="field_pays" data-cy="pays" formControlName="pays" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varString1" for="field_varString1"
+            >Var String 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="varString1"
+            id="field_varString1"
+            data-cy="varString1"
+            formControlName="varString1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varString2" for="field_varString2"
+            >Var String 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="varString2"
+            id="field_varString2"
+            data-cy="varString2"
+            formControlName="varString2"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varString3" for="field_varString3"
+            >Var String 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="varString3"
+            id="field_varString3"
+            data-cy="varString3"
+            formControlName="varString3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger1" for="field_varInteger1"
+            >Var Integer 1</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="varInteger1"
+            id="field_varInteger1"
+            data-cy="varInteger1"
+            formControlName="varInteger1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger2" for="field_varInteger2"
+            >Var Integer 2</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="varInteger2"
+            id="field_varInteger2"
+            data-cy="varInteger2"
+            formControlName="varInteger2"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger3" for="field_varInteger3"
+            >Var Integer 3</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="varInteger3"
+            id="field_varInteger3"
+            data-cy="varInteger3"
+            formControlName="varInteger3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble1" for="field_varDouble1"
+            >Var Double 1</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="varDouble1"
+            id="field_varDouble1"
+            data-cy="varDouble1"
+            formControlName="varDouble1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble2" for="field_varDouble2"
+            >Var Double 2</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="varDouble2"
+            id="field_varDouble2"
+            data-cy="varDouble2"
+            formControlName="varDouble2"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble3" for="field_varDouble3"
+            >Var Double 3</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="varDouble3"
+            id="field_varDouble3"
+            data-cy="varDouble3"
+            formControlName="varDouble3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varInstant" for="field_varInstant"
+            >Var Instant</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_varInstant"
+              data-cy="varInstant"
+              type="datetime-local"
+              class="form-control"
+              name="varInstant"
+              formControlName="varInstant"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varDate" for="field_varDate">Var Date</label>
+          <div class="input-group">
+            <input
+              id="field_varDate"
+              data-cy="varDate"
+              type="text"
+              class="form-control"
+              name="varDate"
+              ngbDatepicker
+              #varDateDp="ngbDatepicker"
+              formControlName="varDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="varDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramGeneral.varBoolean" for="field_varBoolean"
+            >Var Boolean</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="varBoolean"
+            id="field_varBoolean"
+            data-cy="varBoolean"
+            formControlName="varBoolean"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

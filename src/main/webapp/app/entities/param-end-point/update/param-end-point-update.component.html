@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-param-end-point-heading"
+        data-cy="ParamEndPointCreateUpdateHeading"
+        jhiTranslate="apiSmsCollectApp.paramEndPoint.home.createOrEditLabel"
+      >
+        Create or edit a Param End Point
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramEndPoint.codeParam" for="field_codeParam">Code Param</label>
+          <input type="text" class="form-control" name="codeParam" id="field_codeParam" data-cy="codeParam" formControlName="codeParam" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramEndPoint.endPoints" for="field_endPoints">End Points</label>
+          <input type="text" class="form-control" name="endPoints" id="field_endPoints" data-cy="endPoints" formControlName="endPoints" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramEndPoint.attribute01" for="field_attribute01"
+            >Attribute 01</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="attribute01"
+            id="field_attribute01"
+            data-cy="attribute01"
+            formControlName="attribute01"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramEndPoint.attribute02" for="field_attribute02"
+            >Attribute 02</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="attribute02"
+            id="field_attribute02"
+            data-cy="attribute02"
+            formControlName="attribute02"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramEndPoint.attribute03" for="field_attribute03"
+            >Attribute 03</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="attribute03"
+            id="field_attribute03"
+            data-cy="attribute03"
+            formControlName="attribute03"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apiSmsCollectApp.paramEndPoint.attribute04" for="field_attribute04"
+            >Attribute 04</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="attribute04"
+            id="field_attribute04"
+            data-cy="attribute04"
+            formControlName="attribute04"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

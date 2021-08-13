@@ -1,0 +1,31 @@
+{
+  "apiSmsCollectApp": {
+    "tracking": {
+      "home": {
+        "title": "Trackings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tracking",
+        "createOrEditLabel": "Create or edit a Tracking",
+        "notFound": "No Trackings found"
+      },
+      "created": "A new Tracking is created with identifier {{ param }}",
+      "updated": "A Tracking is updated with identifier {{ param }}",
+      "deleted": "A Tracking is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tracking {{ id }}?"
+      },
+      "detail": {
+        "title": "Tracking"
+      },
+      "id": "ID",
+      "codeResponse": "Code Response",
+      "endPoint": "End Point",
+      "loginActeur": "Login Acteur",
+      "requestId": "Request Id",
+      "dateRequest": "Date Request",
+      "dateResponse": "Date Response",
+      "requestTr": "Request Tr",
+      "responseTr": "Response Tr"
+    }
+  }
+}

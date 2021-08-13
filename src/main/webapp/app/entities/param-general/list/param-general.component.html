@@ -1,0 +1,104 @@
+<div>
+  <h2 id="page-heading" data-cy="ParamGeneralHeading">
+    <span jhiTranslate="apiSmsCollectApp.paramGeneral.home.title">Param Generals</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apiSmsCollectApp.paramGeneral.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-param-general"
+        [routerLink]="['/param-general/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apiSmsCollectApp.paramGeneral.home.createLabel"> Create a new Param General </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="paramGenerals?.length === 0">
+    <span jhiTranslate="apiSmsCollectApp.paramGeneral.home.notFound">No paramGenerals found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="paramGenerals && paramGenerals.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.code">Code</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.pays">Pays</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varString1">Var String 1</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varString2">Var String 2</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varString3">Var String 3</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger1">Var Integer 1</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger2">Var Integer 2</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varInteger3">Var Integer 3</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble1">Var Double 1</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble2">Var Double 2</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varDouble3">Var Double 3</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varInstant">Var Instant</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varDate">Var Date</span></th>
+          <th scope="col"><span jhiTranslate="apiSmsCollectApp.paramGeneral.varBoolean">Var Boolean</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paramGeneral of paramGenerals; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/param-general', paramGeneral.id, 'view']">{{ paramGeneral.id }}</a>
+          </td>
+          <td>{{ paramGeneral.code }}</td>
+          <td>{{ paramGeneral.pays }}</td>
+          <td>{{ paramGeneral.varString1 }}</td>
+          <td>{{ paramGeneral.varString2 }}</td>
+          <td>{{ paramGeneral.varString3 }}</td>
+          <td>{{ paramGeneral.varInteger1 }}</td>
+          <td>{{ paramGeneral.varInteger2 }}</td>
+          <td>{{ paramGeneral.varInteger3 }}</td>
+          <td>{{ paramGeneral.varDouble1 }}</td>
+          <td>{{ paramGeneral.varDouble2 }}</td>
+          <td>{{ paramGeneral.varDouble3 }}</td>
+          <td>{{ paramGeneral.varInstant | formatMediumDatetime }}</td>
+          <td>{{ paramGeneral.varDate | formatMediumDate }}</td>
+          <td>{{ paramGeneral.varBoolean }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/param-general', paramGeneral.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/param-general', paramGeneral.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(paramGeneral)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
